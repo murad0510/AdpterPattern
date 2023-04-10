@@ -12,10 +12,10 @@
         <Canvas>
 
             <Label Content="Name" Canvas.Left="100" Canvas.Top="50"></Label>
-            <TextBox Width="230" Canvas.Top="70" Canvas.Left="100"></TextBox>
+            <TextBox Text="{Binding Text,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="230" Canvas.Top="70" Canvas.Left="100"></TextBox>
 
             <Label Content="Surname" Canvas.Left="100" Canvas.Top="100"></Label>
-            <TextBox Width="230" Canvas.Top="120" Canvas.Left="100"></TextBox>
+            <TextBox  Width="230" Canvas.Top="120" Canvas.Left="100"></TextBox>
 
             <Label Content="Age" Canvas.Left="100" Canvas.Top="150"></Label>
             <TextBox Width="230" Canvas.Top="170" Canvas.Left="100"></TextBox>

@@ -13,12 +13,14 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
     {
         public RelayCommand MyJsonRelayCommand { get; set; }
         public RelayCommand MyXmlRelayCommand { get; set; }
+        public String Text { get; set; }
 
         public Main()
         {
             MyJsonRelayCommand = new RelayCommand((a) =>
             {
-                MessageBox.Show("json");
+                MessageBox.Show($"{Text}");
+
             });
 
             MyXmlRelayCommand = new RelayCommand((a) =>
