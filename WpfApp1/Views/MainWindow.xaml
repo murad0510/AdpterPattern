@@ -7,23 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
-
         <Canvas>
 
             <Label Content="Name" Canvas.Left="100" Canvas.Top="50"></Label>
-            <TextBox Text="{Binding Text,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="230" Canvas.Top="70" Canvas.Left="100"></TextBox>
+            <TextBox x:Name="NameTxtBox" Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="230" Canvas.Top="70" Canvas.Left="100"></TextBox>
 
             <Label Content="Surname" Canvas.Left="100" Canvas.Top="100"></Label>
-            <TextBox  Width="230" Canvas.Top="120" Canvas.Left="100"></TextBox>
+            <TextBox x:Name="SurnameTxtBox" Text="{Binding Surname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Width="230" Canvas.Top="120" Canvas.Left="100"></TextBox>
 
             <Label Content="Age" Canvas.Left="100" Canvas.Top="150"></Label>
-            <TextBox Width="230" Canvas.Top="170" Canvas.Left="100"></TextBox>
+            <TextBox x:Name="AgeTxtBox" Text="{Binding Age,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="230" Canvas.Top="170" Canvas.Left="100"></TextBox>
 
             <Label Content="Speciality" Canvas.Left="100" Canvas.Top="200"></Label>
-            <TextBox Width="230" Canvas.Top="220" Canvas.Left="100"></TextBox>
+            <TextBox x:Name="SpecialityTxtBox" Text="{Binding Speciality,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="230" Canvas.Top="220" Canvas.Left="100"></TextBox>
 
-            <RadioButton Command="{Binding MyJsonRelayCommand}" x:Name="MyRadioButtonJson" Content="Json" Canvas.Top="90" Canvas.Right="270" IsChecked="True">
+            <RadioButton Command="{Binding MyJsonRelayCommand}" x:Name="MyRadioButtonJson" Content="Json" Canvas.Top="90" Canvas.Right="270">
                 <RadioButton.RenderTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3"></ScaleTransform>
                 </RadioButton.RenderTransform>
@@ -35,11 +33,8 @@
                 </RadioButton.RenderTransform>
             </RadioButton>
 
-            <Button  Content="Save" Canvas.Bottom="110" Canvas.Left="230" Width="100"></Button>
-            <Button  Content="Read information" Canvas.Bottom="110" Canvas.Left="100" Width="100"></Button>
-
-
+            <Button Command="{Binding Save}"  Content="Save" Canvas.Bottom="110" Canvas.Left="230" Width="100"></Button>
+            <Button Command="{Binding ShowPeopleList}"  Content="People list" Canvas.Bottom="110" Canvas.Left="100" Width="100"></Button>
         </Canvas>
-
     </Grid>
 </Window>

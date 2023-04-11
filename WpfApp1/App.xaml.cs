@@ -13,5 +13,7 @@ namespace WpfApp1
     /// </summary>
     public partial class App : Application
     {
+        public static string JsonPeople { get; set; } = "";
+        public static string XmlPeople { get; set; } = "";
     }
 }
