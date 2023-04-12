@@ -8,7 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Canvas>
-
             <Label Content="Name" Canvas.Left="100" Canvas.Top="50"></Label>
             <TextBox x:Name="NameTxtBox" Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="230" Canvas.Top="70" Canvas.Left="100"></TextBox>
 

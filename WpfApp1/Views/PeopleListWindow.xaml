@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="PeopleListWindow" Height="450" Width="800">
     <Grid>
-        <ListBox Name="PeopleListBox" Width="600" Height="400" SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+        <ListBox Name="PeopleListBox" Width="600" Height="400" SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="{Binding Human}" ItemsSource="{Binding People,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding SelectionChange}"></i:InvokeCommandAction>

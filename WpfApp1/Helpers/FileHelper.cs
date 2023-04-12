@@ -76,15 +76,15 @@ namespace WpfApp1.Helpers
             }
         }
 
-        public List<Human> ReadFileJson(string filename)
+        public Human ReadFileJson(string filename)
         {
-            List<Human> users = null;
+            Human users = null;
             var serializer = new JsonSerializer();
             using (var sr = new StreamReader($"{filename}.json"))
             {
                 using (var jr = new JsonTextReader(sr))
                 {
-                    users = serializer.Deserialize<List<Human>>(jr);
+                    users = serializer.Deserialize<Human>(jr);
                 }
             }
             return users;

@@ -94,11 +94,11 @@
     </ApplicationDefinition>
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Models\Human.cs" />
-    <Compile Include="PeopleListWindow.xaml.cs">
+    <Compile Include="Views\PeopleListWindow.xaml.cs">
       <DependentUpon>PeopleListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RelayCommand\RelayCommand.cs" />
-    <Page Include="PeopleListWindow.xaml">
+    <Page Include="Views\PeopleListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,8 +111,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\MainWindowViewModel\Main.cs" />
-    <Compile Include="ViewModel\PeopleListWindowViewModel\PeopleMainVindow.cs" />
+    <Compile Include="ViewModel\Main.cs" />
+    <Compile Include="ViewModel\PeopleMainVindow.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

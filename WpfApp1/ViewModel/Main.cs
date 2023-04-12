@@ -1,4 +1,5 @@
 ﻿using CinemaPlus.Commands;
+using CinemaPlus.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +14,46 @@ using WpfApp1.ViewModel.PeopleListWindowViewModel;
 namespace WpfApp1.ViewModel.MainWindowViewModel
 {
 
-    public class Main
+    public class Main : BaseViewModel
     {
         public RelayCommand MyJsonRelayCommand { get; set; }
         public RelayCommand MyXmlRelayCommand { get; set; }
         public RelayCommand Save { get; set; }
         public RelayCommand ShowPeopleList { get; set; }
 
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Age { get; set; }
-        public string Speciality { get; set; }
+        private string name;
 
-        public Human People { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set { name = value; OnPropertyChanged(); }
+        }
+
+        private string surname;
+
+        public string Surname
+        {
+            get { return surname; }
+            set { surname = value; OnPropertyChanged(); }
+        }
+
+        private int age;
+
+        public int Age
+        {
+            get { return age; }
+            set { age = value; OnPropertyChanged(); }
+        }
+
+
+        private string specilaity;
+
+        public string Speciality
+        {
+            get { return specilaity; }
+            set { specilaity = value; OnPropertyChanged(); }
+        }
+
 
         public Main()
         {
@@ -57,15 +85,21 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
                 }
                 else
                 {
-                    App.XmlPeople+= $" {human.Name} ";
+                    App.XmlPeople += $" {human.Name} ";
                 }
 
                 aplication.Start(tex, human);
 
-                People = human;
+                PeopleMainVindow peopleMainVindow = new PeopleMainVindow();
+                peopleMainVindow.Method(human, peopleListWindow);
 
-                peopleListWindow.PeopleListBox.DisplayMemberPath = nameof(Human.Name);
-                peopleListWindow.PeopleListBox.Items.Add(human);
+                Name = String.Empty;
+                Surname = String.Empty;
+                Age = 0;
+                Speciality = String.Empty;
+
+                //peopleListWindow.PeopleListBox.DisplayMemberPath = nameof(Human.Name);
+                //peopleListWindow.PeopleListBox.Items.Add(human);
             });
 
             ShowPeopleList = new RelayCommand((a) =>
