@@ -98,6 +98,10 @@
       <DependentUpon>PeopleListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RelayCommand\RelayCommand.cs" />
+    <Page Include="Dictionaries\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PeopleListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
