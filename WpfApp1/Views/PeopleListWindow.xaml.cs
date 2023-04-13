@@ -26,7 +26,8 @@ namespace WpfApp1
         public PeopleListWindow()
         {
             InitializeComponent();
-            PeopleMainVindow peopleMainVindow = new PeopleMainVindow();
+            PeopleList peopleMainVindow = new PeopleList();
+            peopleMainVindow.PeopleLis = this;
             this.DataContext = peopleMainVindow;
         }
     }

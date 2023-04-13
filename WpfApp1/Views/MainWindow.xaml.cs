@@ -24,8 +24,13 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            Main main = new Main();
+            MainWindowViewMode main = new MainWindowViewMode();
             this.DataContext = main;
+        }
+
+        private void Window_DpiChanged(object sender, DpiChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -6,9 +6,23 @@
         xmlns:local="clr-namespace:WpfApp1" 
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
-        Title="PeopleListWindow" Height="450" Width="800">
+        Title="PeopleListWindow" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
-        <ListBox Name="PeopleListBox" Width="600" Height="400" SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="{Binding Human}" ItemsSource="{Binding People,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="750"/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Button x:Name="MyButton" Grid.Row="0" Command="{Binding Minimize}" Grid.Column="1" Margin="0 5 5 0 " Height="30" Width="30" Content="-" FontSize="30">
+        </Button>
+
+        <ListBox Grid.Row="1" Name="PeopleListBox" Width="600" Height="300" SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="{Binding Human}" ItemsSource="{Binding People,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding SelectionChange}"></i:InvokeCommandAction>

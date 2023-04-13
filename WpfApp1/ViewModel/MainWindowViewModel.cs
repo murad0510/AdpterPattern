@@ -7,19 +7,21 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using WpfApp1.Helpers;
 using WpfApp1.Models;
 using WpfApp1.ViewModel.PeopleListWindowViewModel;
 
 namespace WpfApp1.ViewModel.MainWindowViewModel
 {
-
-    public class Main : BaseViewModel
+    public class MainWindowViewMode : BaseViewModel
     {
         public RelayCommand MyJsonRelayCommand { get; set; }
         public RelayCommand MyXmlRelayCommand { get; set; }
         public RelayCommand Save { get; set; }
         public RelayCommand ShowPeopleList { get; set; }
+
+        public Human Human { get; set; }
 
         private string name;
 
@@ -45,7 +47,6 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
             set { age = value; OnPropertyChanged(); }
         }
 
-
         private string specilaity;
 
         public string Speciality
@@ -54,8 +55,8 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
             set { specilaity = value; OnPropertyChanged(); }
         }
 
-
-        public Main()
+        PeopleListWindow peopleListWindow = new PeopleListWindow();
+        public MainWindowViewMode()
         {
             string tex = string.Empty;
             MyJsonRelayCommand = new RelayCommand((a) =>
@@ -68,7 +69,6 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
                 tex = "X";
             });
 
-            PeopleListWindow peopleListWindow = new PeopleListWindow();
 
             Save = new RelayCommand((a) =>
             {
@@ -79,34 +79,59 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
                 human.Speciality = Speciality;
                 Aplication aplication = new Aplication();
 
+                bool JsonAndXml = false;
+
                 if (tex == "j")
                 {
                     App.JsonPeople += $" {human.Name} ";
+                    JsonAndXml = true;
+                }
+                else if (tex == "X")
+                {
+                    App.XmlPeople += $" {human.Name} ";
+                    JsonAndXml = true;
                 }
                 else
                 {
-                    App.XmlPeople += $" {human.Name} ";
+                    MessageBox.Show("Json or Xml");
+                    JsonAndXml = false;
                 }
 
                 aplication.Start(tex, human);
 
-                PeopleMainVindow peopleMainVindow = new PeopleMainVindow();
-                peopleMainVindow.Method(human, peopleListWindow);
 
-                Name = String.Empty;
-                Surname = String.Empty;
-                Age = 0;
-                Speciality = String.Empty;
+                if (JsonAndXml)
+                {
+                    Name = String.Empty;
+                    Surname = String.Empty;
+                    Age = 0;
+                    Speciality = String.Empty;
 
-                //peopleListWindow.PeopleListBox.DisplayMemberPath = nameof(Human.Name);
-                //peopleListWindow.PeopleListBox.Items.Add(human);
+                    //PeopleList peopleMainVindow = new PeopleList();
+                    //peopleMainVindow.Method(human, peopleListWindow);
+
+                    peopleListWindow.PeopleListBox.DisplayMemberPath = nameof(Human.Name);
+                    peopleListWindow.PeopleListBox.Items.Add(human);
+                }
             });
 
             ShowPeopleList = new RelayCommand((a) =>
             {
-                peopleListWindow.ShowDialog();
+                peopleListWindow.Show();
             });
+        }
 
+        public PeopleListWindow MinizeButton()
+        {
+            return peopleListWindow;
+        }
+
+        public void IsChangedInformation(Human human)
+        {
+            Name = human.Name;
+            Surname = human.Surname;
+            Age = human.Age;
+            Speciality = human.Speciality;
         }
     }
 }
