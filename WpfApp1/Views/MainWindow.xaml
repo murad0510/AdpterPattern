@@ -7,33 +7,39 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterOwner">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="White" Offset="1"></GradientStop>
+                <GradientStop Color="Black" Offset="0"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Canvas>
-            <Label Content="Name" Canvas.Left="100" Canvas.Top="50"></Label>
-            <TextBox x:Name="NameTxtBox" Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="230" Canvas.Top="70" Canvas.Left="100"></TextBox>
+            <Label Content="Name" Canvas.Left="100" Canvas.Top="50" Foreground="{StaticResource White}"></Label>
+            <TextBox x:Name="NameTxtBox" Style="{StaticResource TextBox1}" Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Canvas.Top="70" Canvas.Left="100"></TextBox>
 
-            <Label Content="Surname" Canvas.Left="100" Canvas.Top="100"></Label>
-            <TextBox x:Name="SurnameTxtBox" Text="{Binding Surname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Width="230" Canvas.Top="120" Canvas.Left="100"></TextBox>
+            <Label Content="Surname" Canvas.Left="100" Canvas.Top="100" Foreground="{StaticResource White}"></Label>
+            <TextBox x:Name="SurnameTxtBox" Style="{StaticResource TextBox1}" Text="{Binding Surname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Canvas.Top="120" Canvas.Left="100"></TextBox>
 
-            <Label Content="Age" Canvas.Left="100" Canvas.Top="150"></Label>
-            <TextBox x:Name="AgeTxtBox" Text="{Binding Age,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="230" Canvas.Top="170" Canvas.Left="100"></TextBox>
+            <Label Content="Age" Canvas.Left="100" Canvas.Top="150" Foreground="{StaticResource White}"></Label>
+            <TextBox x:Name="AgeTxtBox" Style="{StaticResource TextBox1}" Text="{Binding Age,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Canvas.Top="170" Canvas.Left="100"></TextBox>
 
-            <Label Content="Speciality" Canvas.Left="100" Canvas.Top="200"></Label>
-            <TextBox x:Name="SpecialityTxtBox" Text="{Binding Speciality,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="230" Canvas.Top="220" Canvas.Left="100"></TextBox>
+            <Label Content="Speciality" Canvas.Left="100" Canvas.Top="200" Foreground="{StaticResource White}"></Label>
+            <TextBox x:Name="SpecialityTxtBox" Style="{StaticResource TextBox1}" Text="{Binding Speciality,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Canvas.Top="220" Canvas.Left="100"></TextBox>
 
-            <RadioButton Command="{Binding MyJsonRelayCommand}" x:Name="MyRadioButtonJson" Content="Json" Canvas.Top="90" Canvas.Right="270">
+            <RadioButton Command="{Binding MyJsonRelayCommand}" x:Name="MyRadioButtonJson" Foreground="{StaticResource Black}" Content="Json" Canvas.Top="90" Canvas.Right="270">
                 <RadioButton.RenderTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3"></ScaleTransform>
                 </RadioButton.RenderTransform>
             </RadioButton>
 
-            <RadioButton Command="{Binding MyXmlRelayCommand}" x:Name="MyRadioButtonXml" Content="Xml" Canvas.Top="160" Canvas.Right="270">
+            <RadioButton Command="{Binding MyXmlRelayCommand}" Foreground="{StaticResource Black}" x:Name="MyRadioButtonXml" Content="Xml" Canvas.Top="160" Canvas.Right="270">
                 <RadioButton.RenderTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3"></ScaleTransform>
                 </RadioButton.RenderTransform>
             </RadioButton>
 
-            <Button Command="{Binding Save}"  Content="Save" Canvas.Bottom="110" Canvas.Left="230" Width="100"></Button>
-            <Button Command="{Binding ShowPeopleList}"  Content="People list" Canvas.Bottom="110" Canvas.Left="100" Width="100"></Button>
+            <Button Command="{Binding Save}" Foreground="{StaticResource Black}"  Content="Save" Canvas.Bottom="110" Canvas.Left="230" Width="100"></Button>
+            <Button Command="{Binding ShowPeopleList}" Foreground="{StaticResource Black}"  Content="People list" Canvas.Bottom="110" Canvas.Left="100" Width="100"></Button>
         </Canvas>
     </Grid>
 </Window>

@@ -23,7 +23,7 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
 
         public Human Human { get; set; }
 
-        private string name;
+        private string name = String.Empty;
 
         public string Name
         {
@@ -31,7 +31,7 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
             set { name = value; OnPropertyChanged(); }
         }
 
-        private string surname;
+        private string surname = String.Empty;
 
         public string Surname
         {
@@ -39,7 +39,7 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
             set { surname = value; OnPropertyChanged(); }
         }
 
-        private int age;
+        private int age = 0;
 
         public int Age
         {
@@ -47,13 +47,14 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
             set { age = value; OnPropertyChanged(); }
         }
 
-        private string specilaity;
+        private string specilaity = String.Empty;
 
         public string Speciality
         {
             get { return specilaity; }
             set { specilaity = value; OnPropertyChanged(); }
         }
+
 
         PeopleListWindow peopleListWindow = new PeopleListWindow();
         public MainWindowViewMode()
@@ -99,19 +100,29 @@ namespace WpfApp1.ViewModel.MainWindowViewModel
 
                 aplication.Start(tex, human);
 
-
-                if (JsonAndXml)
+                if (Name != String.Empty && Surname != String.Empty && Age != 0 && Speciality != String.Empty)
                 {
-                    Name = String.Empty;
-                    Surname = String.Empty;
-                    Age = 0;
-                    Speciality = String.Empty;
+                    if (JsonAndXml)
+                    {
+                        Name = String.Empty;
+                        Surname = String.Empty;
+                        Age = 0;
+                        Speciality = String.Empty;
 
-                    //PeopleList peopleMainVindow = new PeopleList();
-                    //peopleMainVindow.Method(human, peopleListWindow);
+                        //PeopleList peopleMainVindow = new PeopleList();
+                        //peopleMainVindow.Method(human, peopleListWindow);
 
-                    peopleListWindow.PeopleListBox.DisplayMemberPath = nameof(Human.Name);
-                    peopleListWindow.PeopleListBox.Items.Add(human);
+                        peopleListWindow.PeopleListBox.DisplayMemberPath = nameof(Human.Name);
+                        peopleListWindow.PeopleListBox.Items.Add(human);
+                    }
+                }
+                else
+                {
+                    string message = "It can't be empty here";
+                    string caption = "Error Detected in Input";
+
+                    MessageBox.Show(message, caption, MessageBoxButton.OK, MessageBoxImage.Information);
+
                 }
             });
 

@@ -10,20 +10,26 @@
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="SnapsToDevicePixels" Value="True"></Setter>
         <Setter Property="Cursor" Value="Hand"></Setter>
+        <Setter Property="Margin" Value="0 5 5 0 "></Setter>
         <Setter Property="BorderBrush">
             <Setter.Value>
-                <SolidColorBrush Color="#FF00C3BA"/>
+                <SolidColorBrush Color="Black"/>
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0.8" CornerRadius="3">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="8" CornerRadius="3">
                         <Border.Effect>
-                            <DropShadowEffect Color="#FF72FFE5" ShadowDepth="0"/>
+                            <DropShadowEffect Color="Black" ShadowDepth="0"/>
                         </Border.Effect>
                         <TextBlock Foreground="{TemplateBinding BorderBrush}" Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Red"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
